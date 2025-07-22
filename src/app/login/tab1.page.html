@@ -19,13 +19,21 @@
 <ion-card>
   <ion-card-content>
     <form action="">
-      <label for="email" style="text-align: left;"><strong>Correo:</strong></label><br>
-      <input type="text" id="email" name="email" placeholder="Ingresa tu correo"><br>
-      <label for="password"><strong>Contraseña:</strong></label><br>
-      <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña"><br><br>
-      <input type="submit" value="Entrar" style="color: white; background-color: black; width:max-content"><br><br>
-      <a href="_blank" style="color: black;">Olvidé la contraseña</a><br><br>
-      <a href="../registro1" style="font-size:larger;"><STRONG>REGISTRARME</STRONG></a>
+      <ion-item>
+        <ion-label></ion-label>
+      </ion-item>
+      <ion-input label="Correo" label-placement="floating" fill="outline" placeholder="mail@mail.com" type="email"></ion-input>
+      <ion-item>
+        <ion-label></ion-label>
+      </ion-item>
+      <ion-input label="Contraseña" label-placement="floating" fill="outline" placeholder="Ingresa contraseña" type="password"></ion-input>
+      <br><br>
+      <ion-button expand="full"  shape="round" color="dark"><a href="../buscar" style="text-decoration: none; color: white;">Entrar</a></ion-button>
+      <br><br>
+      <a href="../recuperar" style="color: black;">Olvidé la contraseña</a><br><br>
+      <a href="../registro1" style="font-size:larger; text-decoration: none;"><STRONG>REGISTRARME</STRONG></a>
+
+
     </form>
   </ion-card-content>
 </ion-card>

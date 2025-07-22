@@ -21,6 +21,11 @@ export const routes: Routes = [
         loadComponent: () =>
           import('../tab3/tab3.page').then((m) => m.Tab3Page),
       },
+       {
+        path: 'buscar',
+        loadComponent: () =>
+          import('../buscar/buscar.page').then((m) => m.BuscarPage),
+      },
       {
         path: '',
         redirectTo: '/tabs/tab1',

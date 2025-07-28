@@ -21,6 +21,13 @@
   <ion-card>
     <ion-card-content>
       <form action="" style="text-align: center;">
+        <ion-list>
+          <ion-item *ngFor="let platform of platforms()">
+            <ion-title>
+              <b>{{ platform.name }}</b>
+            </ion-title>
+          </ion-item>
+        </ion-list>
         <ion-checkbox></ion-checkbox>
         <ion-button shape="round" color="dark">Siguiente</ion-button>
       

@@ -4,13 +4,18 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
-  },  {
+  },
+  {
     path: 'registro2',
     loadComponent: () => import('./registro2/registro2.page').then( m => m.Registro2Page)
   },
   {
     path: 'registro1',
     loadComponent: () => import('./registro1/registro1.page').then( m => m.Registro1Page)
+  },
+   {
+    path: 'buscar',
+    loadComponent: () => import('./buscar/buscar.page').then( m => m.BuscarPage)
   },
   {
     path: 'recuperar',

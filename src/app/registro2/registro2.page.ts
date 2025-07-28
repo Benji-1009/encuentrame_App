@@ -14,7 +14,7 @@ import { NgFor } from '@angular/common';
   templateUrl: './registro2.page.html',
   styleUrls: ['./registro2.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonCardContent, IonCard, IonInput, IonItem, IonList, IonFooter, IonTabs, IonTabBar,IonTabButton, IonIcon, IonLabel, IonButton, IonCheckbox],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent, IonCardContent, IonCard, IonInput, IonItem, IonList, IonFooter, IonTabs, IonTabBar,IonTabButton, IonIcon, IonLabel, IonButton, IonCheckbox, NgFor],
 })
 export class Registro2Page implements OnInit {
   platforms = signal<any[]>(

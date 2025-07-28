@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServicioService {
-  private apiUrl = 'https://localhost:3001/users';
-  private apiUrlPlat = 'https://localhost:3001/platforms';
+  private apiUrl = 'http://localhost:3001/users';
+  private apiUrlPlat = 'http://localhost:3001/platforms';
 
 
   constructor(private http: HttpClient) { }

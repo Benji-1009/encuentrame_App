@@ -32,4 +32,23 @@ export class Registro2Page implements OnInit {
     });
   }
 
+  selectedPlatforms = signal<string[]>([]);
+
+onCheckboxChange(platformName: string, checked: boolean) {
+  const current = this.selectedPlatforms();
+  if (checked) {
+    this.selectedPlatforms.set([...current, platformName]);
+  } else {
+    this.selectedPlatforms.set(current.filter(name => name !== platformName));
+  }
+}
+
+guardarSeleccion() {
+  // Envía los datos a la API
+  this.servicioService.postSelectedPlatforms(this.selectedPlatforms()).subscribe({
+    next: (res) => console.log('Datos guardados', res),
+    error: (err) => console.error('Error:', err)
+  });
+}
+
 }

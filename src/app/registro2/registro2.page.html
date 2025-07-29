@@ -19,20 +19,23 @@
   </div>
 
   <ion-card>
-    <ion-card-content>
-      <form action="" style="text-align: center;">
+    <ion-card-content style="text-align: center;">
         <ion-list>
           <ion-item *ngFor="let platform of platforms()">
-            <ion-title>
-              <b>{{ platform.name }}</b>
+            <ion-title style="text-align: justify;">
+              <p>{{ platform.name }} </p>
             </ion-title>
-            <ion-checkbox></ion-checkbox>
-          </ion-item>
+            <ion-checkbox justify="space-between" [checked]="selectedPlatforms().includes(platform.name)"
+  (ionChange)="onCheckboxChange(platform.name, $event.detail.checked)">ㅤ</ion-checkbox>
+          </ion-item><br>
+          <ion-label>
+            Otro: 
+          </ion-label><br>
+          <ion-input type="text" label="Plataforma" label-placement="floating" fill="outline" placeholder="Escribe el nombre de la plataforma"></ion-input>
         </ion-list>
         
-        <ion-button shape="round" color="dark">Siguiente</ion-button>
+        <ion-button style="text-align: center;" shape="round" color="dark" (click)="guardarSeleccion()">Guardar</ion-button>
       
-      </form>
     </ion-card-content>
   </ion-card>
 </ion-content>

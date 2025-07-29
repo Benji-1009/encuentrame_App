@@ -24,8 +24,8 @@
           <ion-label> </ion-label>
         </ion-item>
         <ion-input
-          [(ngModel)]="nombre"
-          name="nombre"
+          [(ngModel)]="name"
+          name="name"
           style="text-align: center"
           label="Nombre: "
           label-placement="floating"
@@ -37,8 +37,8 @@
           <ion-label> </ion-label>
         </ion-item>
         <ion-input
-          [(ngModel)]="apellidos"
-          name="apellidos"
+          [(ngModel)]="lastname"
+          name="lastname"
           style="text-align: center"
           label="Apellidos: "
           label-placement="floating"
@@ -50,8 +50,8 @@
           <ion-label> </ion-label>
         </ion-item>
         <ion-input
-          [(ngModel)]="correo"
-          name="correo"
+          [(ngModel)]="email"
+          name="email"
           style="text-align: center"
           type="email"
           label="Correo: "
@@ -64,14 +64,16 @@
           <ion-label> </ion-label>
         </ion-item>
         <ion-input
-          [(ngModel)]="telefono"
-          name="telefono"
+          [(ngModel)]="phone"
+          name="phone"
           style="text-align: center"
           type="tel"
           label="Teléfono: "
           label-placement="floating"
           fill="outline"
           placeholder="555555555"
+          minlength="10"
+          maxlength="10"
         ></ion-input>
 
         <ion-item><ion-label></ion-label></ion-item>

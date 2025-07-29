@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
   IonHeader,
@@ -10,17 +10,11 @@ import {
   IonCardContent,
   IonInput,
   IonItem,
-  IonList,
-  IonFooter,
-  IonTabs,
-  IonTabBar,
-  IonTabButton,
   IonIcon,
   IonLabel,
   IonButton,
   IonText,
 } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { ServicioService } from '../servicio.service';
 
 @Component({
@@ -33,41 +27,37 @@ import { ServicioService } from '../servicio.service';
     IonToolbar,
     IonTitle,
     IonContent,
-    ExploreContainerComponent,
     IonCardContent,
     IonCard,
     IonInput,
     IonItem,
-    IonList,
-    IonFooter,
-    IonTabs,
-    IonTabBar,
-    IonTabButton,
     IonIcon,
     IonLabel,
     IonButton,
     FormsModule,
     IonText,
+    NgIf,
   ],
 })
 export class Registro1Page {
-  nombre: string = '';
-  apellidos: string = '';
-  correo: string = '';
-  telefono: string = '';
+  name: string = '';
+  lastname: string = '';
+  email: string = '';
+  phone: number = 0;
   password: string = '';
   confirmPassword: string = '';
 
   constructor(public servicioService: ServicioService) {}
 
   guardarDatos() {
-    if (this.password !== this.confirmPassword) return;
+    if (this.password !== this.confirmPassword)
+      return alert('Las contraseñas no coinciden');
 
     const userData = {
-      nombre: this.nombre,
-      apellidos: this.apellidos,
-      correo: this.correo,
-      telefono: this.telefono,
+      name: this.name,
+      lastname: this.lastname,
+      email: this.email,
+      phone: this.phone,
       password: this.password,
     };
 

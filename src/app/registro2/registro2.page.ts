@@ -56,6 +56,7 @@ import { NgFor } from '@angular/common';
 })
 export class Registro2Page implements OnInit {
   platforms = signal<any[]>([]);
+  selectedPlatforms = signal<string[]>([]);
 
   constructor(public servicioService: ServicioService) {
     addIcons({
@@ -79,8 +80,6 @@ export class Registro2Page implements OnInit {
     });
   }
 
-  selectedPlatforms = signal<string[]>([]);
-
   onCheckboxChange(platformName: string, checked: boolean) {
     const current = this.selectedPlatforms();
     if (checked) {
@@ -92,7 +91,7 @@ export class Registro2Page implements OnInit {
     }
   }
 
-  guardarSeleccion() {
+  /* guardarSeleccion() {
     // Envía los datos a la API
     this.servicioService
       .postSelectedPlatforms(this.selectedPlatforms())
@@ -100,5 +99,5 @@ export class Registro2Page implements OnInit {
         next: (res) => console.log('Datos guardados', res),
         error: (err) => console.error('Error:', err),
       });
-  }
+  } */
 }

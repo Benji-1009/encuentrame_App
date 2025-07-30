@@ -77,6 +77,8 @@ export class Registro1Page {
 
     this.servicioService.postUsers(userData).subscribe({
       next: (res) => {
+        //aqui guardamos el nombre de usuario en localStorage
+        localStorage.setItem('nombreUsuario', this.name);
         alert('Registro guardado exitosamente');
         this.router.navigate(['../buscar']);
       },

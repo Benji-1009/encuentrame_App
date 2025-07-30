@@ -53,7 +53,7 @@ export class LoginPage {
         if (user) {
           localStorage.setItem('user', this.name);
           alert('Inicio de sesión exitoso');
-          this.router.navigate(['../buscar']);
+          this.router.navigate(['../tabs/buscar']);
         } else {
           alert('Credenciales incorrectas');
         }

@@ -1,9 +1,5 @@
-import {
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  NgModule,
-  signal,
-} from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
   IonCard,
   IonCardContent,
@@ -38,10 +34,6 @@ import { TabsPage } from '../tabs/tabs.page';
 import { Router } from '@angular/router';
 import { ServicioService } from '../servicio.service';
 
-NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-});
-
 @Component({
   selector: 'app-buscar',
   templateUrl: './buscar.page.html',
@@ -63,11 +55,14 @@ NgModule({
     IonLabel,
     IonAvatar,
     IonButton,
+    FormsModule,
+    TabsPage,
   ],
 })
 export class BuscarPage {
   platform = signal<any[]>([]);
   nombreUsuario: string = '';
+  email: string = '';
 
   constructor(
     private servicioService: ServicioService,

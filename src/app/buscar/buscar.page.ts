@@ -60,7 +60,7 @@ import { ServicioService } from '../servicio.service';
   ],
 })
 export class BuscarPage {
-  platform = signal<any[]>([]);
+  platform: string = '';
   nombreUsuario: string = '';
   email: string = '';
 
@@ -84,5 +84,24 @@ export class BuscarPage {
 
   ngOnInit() {
     this.nombreUsuario = localStorage.getItem('nombreUsuario') || '';
+  }
+
+  buscarPlataformas() {
+    this.servicioService.getUsers().subscribe({
+      next: (data) => {
+        console.log(data);
+        const user = data.find((u: any) => u.email === this.email);
+        if (user) {
+          localStorage.setItem('platform', user.platform);
+          alert('Plataformas encontradas');
+          this.router.navigate(['../tabs/tab2']);
+        } else {
+          alert('Usuario no encontrado');
+        }
+      },
+      error: (error) => {
+        console.error('Error al buscar plataformas:', error);
+      },
+    });
   }
 }

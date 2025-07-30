@@ -11,12 +11,21 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-item>
-    <ion-label>
-      <p></p>
-      <h2>{{platform}}</h2>
-    </ion-label>
-  </ion-item>
+  <ion-card>
+    <ion-card-content style="text-align: center">
+      <ion-title>Aquí están tus paquetes:</ion-title>
+      <ion-list>
+        <ion-item *ngFor="let resultado of listaResultados; let i = index">
+          <ion-title>
+            <p>{{resultado.plataforma}}</p>
+          </ion-title>
+          <ion-button (click)="viewDetail(i)">
+            <ion-label>Ver Detalle</ion-label>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
   <ion-button (click)="exit()" expand="full" shape="round" color="dark">
     <ion-label>Cerrar sesión</ion-label>

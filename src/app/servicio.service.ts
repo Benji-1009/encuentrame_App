@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class ServicioService {
   private apiUrlUsers = 'http://localhost:3001/users';
   private apiUrlPlat = 'http://localhost:3001/platforms';
+  private apiUrlShip = 'http://localhost:3001/shipment';
 
   constructor(private http: HttpClient) {}
   getUsers(): Observable<any[]> {
@@ -33,5 +34,9 @@ export class ServicioService {
 
   postCustomPlatform(nombre: string): Observable<any> {
     return this.http.post<any>(this.apiUrlPlat, { name: nombre });
+  }
+
+  getMensaje(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrlShip);
   }
 }

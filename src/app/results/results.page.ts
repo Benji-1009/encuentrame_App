@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 import {
   IonContent,
   IonHeader,
@@ -9,6 +10,9 @@ import {
   IonItem,
   IonLabel,
   IonButton,
+  IonList,
+  IonCard,
+  IonCardContent,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
 import { Router } from '@angular/router';
@@ -28,12 +32,18 @@ import { Router } from '@angular/router';
     IonItem,
     IonLabel,
     IonButton,
+    IonList,
+    NgFor,
+    IonCard,
+    IonCardContent,
   ],
 })
 export class ResultsPage {
   name: string = '';
   platform: string = '';
   email: string = '';
+  listaResultados: any[] = [];
+  numero: number = 0;
 
   constructor(
     private servicioService: ServicioService,
@@ -41,7 +51,32 @@ export class ResultsPage {
   ) {}
 
   ngOnInit() {
-    this.platform = localStorage.getItem('platform') || '';
+    const plataformasStr = localStorage.getItem('platform') || '';
+    this.listaResultados = plataformasStr
+      ? plataformasStr.split(',').map((p) => ({ plataforma: p.trim() }))
+      : [];
+    console.log(this.listaResultados);
+    /* JSON.parse(localStorage.getItem('platform') || '[]').forEach(
+      (element: any) => {
+        this.listaResultados = element;
+      }
+    ); */
+    /* JSON.parse(localStorage.getItem('listaResultados') || '[]').forEach(
+      (element: any) => {
+        this.listaResultados.push({
+          nombre: element.nombre,
+          email: element.email,
+          plataforma: element.plataforma,
+          fecha: element.fecha,
+          hora: element.hora,
+        });
+      }
+    ); */
+  }
+
+  viewDetail(index: number) {
+    localStorage.setItem('selectedIndex', index.toString());
+    this.router.navigate(['../details']);
   }
 
   exit() {
@@ -52,7 +87,7 @@ export class ResultsPage {
       const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
       document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
     });
-    alert('Cerrar sesión');
     this.router.navigate(['../login']);
+    alert('Cerrar sesión');
   }
 }

@@ -46,12 +46,15 @@ export class LoginPage {
   login() {
     this.servicioService.getUsers().subscribe({
       next: (data) => {
-        console.log(data);
+        //console.log(data);
         const user = data.find(
           (u: any) => u.email === this.email && u.password === this.password
         );
         if (user) {
-          localStorage.setItem('user', this.name);
+          this.name = user.name;
+          //this.email = user.email;
+          localStorage.setItem('correoUsuario', this.email);
+          localStorage.setItem('nombreUsuario', this.name);
           alert('Inicio de sesión exitoso');
           this.router.navigate(['../tabs/buscar']);
         } else {

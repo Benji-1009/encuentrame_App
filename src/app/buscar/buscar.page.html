@@ -24,7 +24,7 @@
         />
       </ion-avatar>
       <ion-title>
-        <h2><strong>{{ nombreUsuario}}</strong></h2>
+        <h2><strong>{{ nombreUsuario }}</strong></h2>
       </ion-title>
       <br /><br />
       <p>Ingresa tú correo para rastrear tus paquetes:</p>
@@ -42,9 +42,18 @@
         placeholder="mail@mail.com"
         type="email"
         required="true"
-      ></ion-input
+      ></ion-input>
+      <ion-text color="danger" *ngIf="!email"
+        ><br />
+        Debes llenar este campo </ion-text
       ><br /><br />
-      <ion-button expand="full" shape="round" color="dark">BUSCAR</ion-button
+      <ion-button
+        expand="full"
+        shape="round"
+        color="dark"
+        [disabled]="!email"
+        (click)="buscarPlataformas()"
+        >BUSCAR</ion-button
       ><br /><br />
     </ion-card-content>
   </ion-card>

@@ -27,6 +27,11 @@ export const routes: Routes = [
           import('../buscar/buscar.page').then((m) => m.BuscarPage),
       },
       {
+        path: 'results',
+        loadComponent: () =>
+          import('../results/results.page').then((m) => m.ResultsPage),
+      },
+      {
         path: '',
         redirectTo: '/tabs/login',
         pathMatch: 'full',

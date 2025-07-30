@@ -1,21 +1,19 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 import {
   IonCard,
   IonCardContent,
   IonContent,
   IonHeader,
-  IonIcon,
   IonInput,
   IonItem,
   IonLabel,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
   IonTitle,
   IonToolbar,
   IonAvatar,
   IonButton,
+  IonText,
 } from '@ionic/angular/standalone';
 import {
   triangle,
@@ -30,7 +28,6 @@ import {
   searchSharp,
 } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
-import { TabsPage } from '../tabs/tabs.page';
 import { Router } from '@angular/router';
 import { ServicioService } from '../servicio.service';
 
@@ -48,15 +45,12 @@ import { ServicioService } from '../servicio.service';
     IonCard,
     IonInput,
     IonItem,
-    IonTabs,
-    IonTabBar,
-    IonTabButton,
-    IonIcon,
     IonLabel,
     IonAvatar,
     IonButton,
     FormsModule,
-    TabsPage,
+    IonText,
+    NgIf,
   ],
 })
 export class BuscarPage {
@@ -87,21 +81,32 @@ export class BuscarPage {
   }
 
   buscarPlataformas() {
-    this.servicioService.getUsers().subscribe({
-      next: (data) => {
-        console.log(data);
-        const user = data.find((u: any) => u.email === this.email);
-        if (user) {
-          localStorage.setItem('platform', user.platform);
-          alert('Plataformas encontradas');
-          this.router.navigate(['../tabs/tab2']);
-        } else {
-          alert('Usuario no encontrado');
-        }
-      },
-      error: (error) => {
-        console.error('Error al buscar plataformas:', error);
-      },
-    });
+    const correoLogin = localStorage.getItem('correoUsuario');
+    if (this.email !== correoLogin) {
+      alert('Ese correo no lo tienes registrado');
+      return;
+    } else {
+      this.servicioService.getUsers().subscribe({
+        next: (data) => {
+          //console.log(data);
+          const user = data.find((u: any) => u.email === this.email);
+          if (user) {
+            if (user.platforms !== '') {
+              this.platform = user.platforms;
+            } else {
+              this.platform = 'No hay plataformas registradas';
+            }
+            localStorage.setItem('platform', user.platforms);
+            alert('Si tienes paquetes a rastrear');
+            this.router.navigate(['../results']);
+          } else {
+            alert('Correo no encontrado');
+          }
+        },
+        error: (error) => {
+          console.error('Error al buscar plataformas:', error);
+        },
+      });
+    }
   }
 }

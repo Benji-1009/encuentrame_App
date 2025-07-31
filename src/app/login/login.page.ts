@@ -34,9 +34,16 @@ import { Router } from '@angular/router';
   ],
 })
 export class LoginPage {
-  email: string = '';
-  password: string = '';
+  //AQUI SE DECLARAN LAS VARIABLES QUE SE VAN A UTILIZAR EN EL LOGIN
+  // Y QUE SE VAN A ENVIAR AL SERVICIO Y QUE VIENEN DE LA API
+  id: number = 0;
   name: string = '';
+  lastname: string = '';
+  email: string = '';
+  phone: string = '';
+  password: string = '';
+  platform: string = '';
+  plataformas: string[] = [];
 
   constructor(
     private servicioService: ServicioService,
@@ -51,10 +58,21 @@ export class LoginPage {
           (u: any) => u.email === this.email && u.password === this.password
         );
         if (user) {
+          this.id = user.id;
           this.name = user.name;
-          //this.email = user.email;
-          localStorage.setItem('correoUsuario', this.email);
+          this.lastname = user.lastname;
+          this.email = user.email;
+          this.phone = user.phone;
+          this.password = user.password;
+          this.plataformas = user.platform;
+          localStorage.setItem('idUsuario', this.id.toString());
           localStorage.setItem('nombreUsuario', this.name);
+          localStorage.setItem('apellidoUsuario', this.lastname);
+          localStorage.setItem('correoUsuario', this.email);
+          localStorage.setItem('telefonoUsuario', this.phone);
+          localStorage.setItem('passwordUsuario', this.password);
+          localStorage.setItem('platform', this.platform);
+
           alert('Inicio de sesión exitoso');
           this.router.navigate(['../tabs/buscar']);
         } else {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
+import { TabsPage } from '../tabs/tabs.page';
 import {
   IonContent,
   IonHeader,
@@ -16,6 +17,8 @@ import {
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
 import { Router } from '@angular/router';
+
+import { addIcons } from 'ionicons';
 
 @Component({
   selector: 'app-results',
@@ -56,22 +59,6 @@ export class ResultsPage {
       ? plataformasStr.split(',').map((p) => ({ plataforma: p.trim() }))
       : [];
     console.log(this.listaResultados);
-    /* JSON.parse(localStorage.getItem('platform') || '[]').forEach(
-      (element: any) => {
-        this.listaResultados = element;
-      }
-    ); */
-    /* JSON.parse(localStorage.getItem('listaResultados') || '[]').forEach(
-      (element: any) => {
-        this.listaResultados.push({
-          nombre: element.nombre,
-          email: element.email,
-          plataforma: element.plataforma,
-          fecha: element.fecha,
-          hora: element.hora,
-        });
-      }
-    ); */
   }
 
   viewDetail(index: number) {
@@ -87,7 +74,7 @@ export class ResultsPage {
       const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
       document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
     });
-    this.router.navigate(['../login']);
+    this.router.navigate(['../tabs/login']);
     alert('Cerrar sesión');
   }
 

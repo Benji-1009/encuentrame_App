@@ -10,7 +10,6 @@ import {
   IonCardContent,
   IonItem,
   IonLabel,
-  IonNav,
   IonButton,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
@@ -32,7 +31,6 @@ import { Router } from '@angular/router';
     IonCardContent,
     IonItem,
     IonLabel,
-    IonNav,
     IonButton,
   ],
 })

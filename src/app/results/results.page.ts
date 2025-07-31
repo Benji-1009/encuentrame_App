@@ -90,4 +90,8 @@ export class ResultsPage {
     this.router.navigate(['../login']);
     alert('Cerrar sesión');
   }
+
+  goBack() {
+    this.router.navigate(['../tabs/buscar']);
+  }
 }

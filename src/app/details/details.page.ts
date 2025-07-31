@@ -45,6 +45,8 @@ export class DetailsPage implements OnInit {
   details: string = '';
   numeroAzar: number = 0;
   numero: number = 0;
+  nombre: string = '';
+  codigo: string = '';
 
   constructor(
     private servicioService: ServicioService,
@@ -85,7 +87,11 @@ export class DetailsPage implements OnInit {
         if (ship) {
           this.detalle = ship;
           this.details = ship.details;
+          this.nombre = ship.name;
+          this.codigo = ship.code;
           console.log('ID localizado:', ship.id);
+          console.log('Nombre:', this.nombre);
+          console.log('Código:', this.codigo);
           console.log('Detalles:', ship.details);
         } else {
           console.error(

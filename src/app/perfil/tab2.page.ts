@@ -8,18 +8,14 @@ import {
   IonCardContent,
   IonInput,
   IonItem,
-  IonIcon,
   IonLabel,
   IonButton,
-  IonText,
   IonList,
-  IonCheckbox,
 } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { ServicioService } from '../servicio.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-perfil',
@@ -35,15 +31,11 @@ import { NgFor, NgIf } from '@angular/common';
     IonCard,
     IonInput,
     IonItem,
-    IonIcon,
     IonLabel,
     IonButton,
     FormsModule,
-    IonText,
     NgIf,
-    NgFor,
     IonList,
-    IonCheckbox,
   ],
 })
 export class Tab2Page {

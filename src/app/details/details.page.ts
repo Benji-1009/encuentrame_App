@@ -10,7 +10,6 @@ import {
   IonCardContent,
   IonItem,
   IonLabel,
-  IonButton,
   IonIcon,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
@@ -34,7 +33,6 @@ import { arrowUndoOutline } from 'ionicons/icons';
     IonCardContent,
     IonItem,
     IonLabel,
-    IonButton,
     IonIcon,
   ],
 })

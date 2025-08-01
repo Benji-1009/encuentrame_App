@@ -54,6 +54,7 @@ export class Tab2Page {
   paswordUsuario: string = '';
   platform: string[] = [];
   nuevaPlataforma: string = '';
+  email: string = '';
 
   constructor(
     private servicioService: ServicioService,
@@ -103,6 +104,7 @@ export class Tab2Page {
         localStorage.setItem('platform', this.platform.join(', '));
         alert('Perfil actualizado correctamente');
         this.router.navigate(['../tabs/buscar']);
+        this.email = '';
       },
       (error: any) => {
         console.error('Error al actualizar el perfil:', error);
@@ -110,21 +112,39 @@ export class Tab2Page {
       }
     );
   }
-  guardarPlataforma(nuevaPlataforma: string = '') {
-    const plataformasStr = localStorage.getItem('platform') || '';
-    let plataformas = plataformasStr
-      ? plataformasStr.split(',').map((p) => p.trim())
-      : [];
+  agregarPlataforma(nuevaPlataforma: string) {
+    if (!nuevaPlataforma.trim()) return;
 
-    if (nuevaPlataforma && !plataformas.includes(nuevaPlataforma)) {
-      plataformas.push(nuevaPlataforma.trim());
-    } else if (nuevaPlataforma) {
-      alert('La plataforma ya está registrada');
-      return;
-    }
-    // aqui se guarda la plataforma agregada
-    localStorage.setItem('platform', plataformas.join(', '));
-    this.platform = plataformas;
-    this.nuevaPlataforma = ''; // Limpiar el campo de entrada
+    // 1. Verifica si ya existe en la API
+    this.servicioService.getPlatforms().subscribe({
+      next: (plataformasApi: any[]) => {
+        const existe = plataformasApi.some(
+          (p) => p.name.toLowerCase() === nuevaPlataforma.trim().toLowerCase()
+        );
+        if (existe) {
+          alert('La plataforma ya existe');
+          return;
+        }
+
+        // 2. Si no existe, la agrega en la API
+        this.servicioService
+          .postCustomPlatform(nuevaPlataforma.trim())
+          .subscribe({
+            next: (plataformaCreada) => {
+              // 3. Actualiza el arreglo local y localStorage
+              this.platform.push(nuevaPlataforma.trim());
+              localStorage.setItem('platform', this.platform.join(', '));
+              this.nuevaPlataforma = '';
+              alert('Plataforma agregada correctamente');
+            },
+            error: () => {
+              alert('Error al agregar la plataforma');
+            },
+          });
+      },
+      error: () => {
+        alert('Error al consultar las plataformas');
+      },
+    });
   }
 }

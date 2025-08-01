@@ -11,20 +11,44 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container" style="text-align: center;">
+  <div id="container" style="text-align: center">
     <h1><strong>Recuperar contraseña</strong></h1>
-  </div><br><br><br>
-  <ion-card style="text-align: center;">
+  </div>
+  <br /><br /><br />
+  <ion-card style="text-align: center">
     <ion-card-content>
       <p>Ingresa el correo para reestablecer tu contraseña</p>
       <ion-item>
-        <ion-label>
-          
-        </ion-label>
+        <ion-label> </ion-label>
       </ion-item>
-      <ion-input label="Correo" label-placement="floating" fill="outline" placeholder="mail@mail.com" type="email"></ion-input> <br><br>
-      <ion-button expand="block" type="submit" color="dark">Recuperar contraseña</ion-button><br><br>
-      <a href="../" style="font-size: medium; text-decoration: none;">Inicio</a>
+      <ion-input
+        label="Correo"
+        label-placement="floating"
+        fill="outline"
+        placeholder="mail@mail.com"
+        type="email"
+        requiered="true"
+        name="correo"
+        [(ngModel)]="email"
+      ></ion-input
+      ><br />
+      <ion-text color="danger" *ngIf="!email" style="text-align: center">
+        Debes ingresar tu correo para recuperar la contraseña
+      </ion-text>
+      <br /><br />
+      <ion-button
+        expand="block"
+        type="submit"
+        color="success"
+        (click)="recuperarContrasena()"
+        [disabled]="!email"
+        shape="round"
+      >
+        Recuperar contraseña</ion-button
+      ><br /><br />
+      <ion-button shape="round" expand="block" color="dark" (click)="goHome()"
+        >Inicio</ion-button
+      >
     </ion-card-content>
   </ion-card>
 </ion-content>

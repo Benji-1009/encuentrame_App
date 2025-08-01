@@ -10,102 +10,101 @@
       <ion-title size="large">Perfil</ion-title>
     </ion-toolbar>
   </ion-header>
-  <br />
   <ion-title style="text-align: center">
     <h2><strong>Editar perfil</strong></h2>
   </ion-title>
 
   <ion-card>
-    <ion-card-content>
-      <form action="" style="text-align: center">
-        <ion-item *ngIf="nombreUsuario">
-          <ion-label> </ion-label>
-        </ion-item>
+    <ion-card-content style="text-align: center">
+      <ion-item *ngIf="nombreUsuario">
+        <ion-label> </ion-label>
+      </ion-item>
+      <ion-input
+        [(ngModel)]="nombreUsuario"
+        name="nombreUsuario"
+        style="text-align: center"
+        label="Nombre: "
+        label-placement="floating"
+        fill="outline"
+        placeholder="Escribe tu nombre..."
+        required="true"
+      ></ion-input>
+
+      <ion-item>
+        <ion-label> </ion-label>
+      </ion-item>
+      <ion-input
+        [(ngModel)]="apellidoUsuario"
+        name="apellidoUsuario"
+        style="text-align: center"
+        label="Apellidos: "
+        label-placement="floating"
+        fill="outline"
+        placeholder="Escribe tus apellidos..."
+        required="true"
+      ></ion-input>
+
+      <ion-item>
+        <ion-label> </ion-label>
+      </ion-item>
+      <ion-input
+        [(ngModel)]="correoUsuario"
+        name="email"
+        style="text-align: center"
+        type="email"
+        label="Correo: "
+        label-placement="floating"
+        fill="outline"
+        placeholder="mail@mail.com"
+        required="true"
+      ></ion-input>
+
+      <ion-item>
+        <ion-label> </ion-label>
+      </ion-item>
+      <ion-input
+        [(ngModel)]="telefonoUsuario"
+        name="telefonoUsuario"
+        style="text-align: center"
+        type="tel"
+        label="Teléfono: "
+        label-placement="floating"
+        fill="outline"
+        placeholder="555555555"
+        minlength="10"
+        maxlength="10"
+      ></ion-input>
+
+      <ion-list>
+        <br />
+        <ion-label> Agregar otra plataforma: </ion-label><br />
         <ion-input
-          [(ngModel)]="nombreUsuario"
-          name="nombreUsuario"
-          style="text-align: center"
-          label="Nombre: "
+          type="text"
+          label="Plataforma"
           label-placement="floating"
           fill="outline"
-          placeholder="Escribe tu nombre..."
-          required="true"
+          placeholder="Escribe el nombre de la plataforma"
+          [(ngModel)]="nuevaPlataforma"
+          name="nuevaPlataforma"
         ></ion-input>
-
-        <ion-item>
-          <ion-label> </ion-label>
-        </ion-item>
-        <ion-input
-          [(ngModel)]="apellidoUsuario"
-          name="apellidoUsuario"
-          style="text-align: center"
-          label="Apellidos: "
-          label-placement="floating"
-          fill="outline"
-          placeholder="Escribe tus apellidos..."
-          required="true"
-        ></ion-input>
-
-        <ion-item>
-          <ion-label> </ion-label>
-        </ion-item>
-        <ion-input
-          [(ngModel)]="correoUsuario"
-          name="correoUsuario"
-          style="text-align: center"
-          type="email"
-          label="Correo: "
-          label-placement="floating"
-          fill="outline"
-          placeholder="mail@mail.com"
-          required="true"
-        ></ion-input>
-
-        <ion-item>
-          <ion-label> </ion-label>
-        </ion-item>
-        <ion-input
-          [(ngModel)]="telefonoUsuario"
-          name="telefonoUsuario"
-          style="text-align: center"
-          type="tel"
-          label="Teléfono: "
-          label-placement="floating"
-          fill="outline"
-          placeholder="555555555"
-          minlength="10"
-          maxlength="10"
-        ></ion-input>
-
-        <ion-list>
-          <br />
-          <ion-label> Agregar otra plataforma: </ion-label><br />
-          <ion-input
-            type="text"
-            label="Plataforma"
-            label-placement="floating"
-            fill="outline"
-            placeholder="Escribe el nombre de la plataforma"
-            [(ngModel)]="nuevaPlataforma"
-          ></ion-input>
-          <ion-button
-            (click)="guardarPlataforma(nuevaPlataforma)"
-            fill="clear"
-            style="text-align: center"
-          >
-            Agregar</ion-button
-          >
-        </ion-list>
-
         <ion-button
+          (click)="agregarPlataforma(nuevaPlataforma)"
+          fill="clear"
           style="text-align: center"
-          shape="round"
-          color="dark"
-          (click)="editarPerfil()"
         >
-          Guardar</ion-button
+          Agregar</ion-button
         >
-      </form>
+      </ion-list>
+
+      <ion-button
+        style="text-align: center"
+        shape="round"
+        color="dark"
+        (click)="editarPerfil()"
+        color="success"
+      >
+        Actualizar</ion-button
+      >
     </ion-card-content>
   </ion-card>
 </ion-content>

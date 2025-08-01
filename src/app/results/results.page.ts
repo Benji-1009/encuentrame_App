@@ -45,6 +45,7 @@ export class ResultsPage {
   name: string = '';
   platform: string = '';
   email: string = '';
+  password: string = '';
   listaResultados: any[] = [];
   numero: number = 0;
 
@@ -76,9 +77,12 @@ export class ResultsPage {
     });
     this.router.navigate(['../tabs/login']);
     alert('Cerrar sesión');
+    this.email = '';
+    this.password = '';
   }
 
   goBack() {
     this.router.navigate(['../tabs/buscar']);
+    this.email = '';
   }
 }

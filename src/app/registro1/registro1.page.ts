@@ -19,6 +19,20 @@ import {
   IonCheckbox,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
+import { addIcons } from 'ionicons';
+import {
+  triangle,
+  ellipse,
+  square,
+  homeOutline,
+  homeSharp,
+  star,
+  personSharp,
+  personCircleOutline,
+  informationSharp,
+  searchSharp,
+  chevronBackOutline,
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-registro1',
@@ -56,10 +70,21 @@ export class Registro1Page {
   platforms = signal<any[]>([]);
   selectedPlatforms = signal<string[]>([]);
 
-  constructor(
-    public servicioService: ServicioService,
-    private router: Router
-  ) {}
+  constructor(public servicioService: ServicioService, private router: Router) {
+    addIcons({
+      triangle,
+      ellipse,
+      square,
+      homeSharp,
+      homeOutline,
+      star,
+      personCircleOutline,
+      personSharp,
+      informationSharp,
+      searchSharp,
+      chevronBackOutline,
+    });
+  }
 
   // AQUI SE MANDA A GUARDAR LOS DATOS DEL USUARIO A LA API
   guardarDatos() {
@@ -146,5 +171,11 @@ export class Registro1Page {
         });
     }
     //#############################################################
+  }
+
+  goback() {
+    this.router.navigate(['../tabs/login']);
+    this.email = '';
+    this.password = '';
   }
 }

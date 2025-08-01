@@ -11,6 +11,7 @@ import {
   IonItem,
   IonLabel,
   IonIcon,
+  IonImg,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
 import { Router } from '@angular/router';
@@ -34,6 +35,7 @@ import { arrowUndoOutline } from 'ionicons/icons';
     IonItem,
     IonLabel,
     IonIcon,
+    IonImg,
   ],
 })
 export class DetailsPage implements OnInit {
@@ -112,5 +114,8 @@ export class DetailsPage implements OnInit {
 
   goBack() {
     this.router.navigate(['../results']);
+  }
+  logo() {
+    this.router.navigate(['../tabs/login']);
   }
 }

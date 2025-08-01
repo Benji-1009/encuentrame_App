@@ -11,6 +11,7 @@ import {
   IonLabel,
   IonButton,
   IonList,
+  IonImg,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
 import { Router } from '@angular/router';
@@ -36,6 +37,7 @@ import { NgIf } from '@angular/common';
     FormsModule,
     NgIf,
     IonList,
+    IonImg,
   ],
 })
 export class Tab2Page {
@@ -138,5 +140,8 @@ export class Tab2Page {
         alert('Error al consultar las plataformas');
       },
     });
+  }
+  logo() {
+    this.router.navigate(['../tabs/login']);
   }
 }

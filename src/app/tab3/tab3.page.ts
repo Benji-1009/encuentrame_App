@@ -7,8 +7,10 @@ import {
   IonCard,
   IonCardHeader,
   IonCardContent,
+  IonImg,
 } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { ServicioService } from '../servicio.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -22,8 +24,13 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
     IonCard,
     IonCardHeader,
     IonCardContent,
+    IonImg,
   ],
 })
 export class Tab3Page {
-  constructor() {}
+  constructor(private servicio: ServicioService, private router: Router) {}
+
+  logo() {
+    this.router.navigate(['../tabs/login']);
+  }
 }

@@ -1,8 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title style="text-align: center">
-      <ion-icon name="star" style="color: red"></ion-icon
-    ></ion-title>
+      <ion-img
+        src="/assets/icon/Asset 6ldpi.png"
+        style="width: 30px; height: 30px; margin: auto"
+        (click)="logo()"
+      ></ion-img>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,8 +18,8 @@
   </ion-header>
 
   <ion-icon
-    name="chevron-back-outline"
-    style="color: red"
+    name="arrow-undo-outline"
+    style="color: red; font-size: 30px"
     (click)="goback()"
   ></ion-icon>
 
@@ -150,7 +154,7 @@
         <ion-button
           style="text-align: center"
           shape="round"
-          color="dark"
+          color="primary"
           [disabled]="password !== confirmPassword || !password || selectedPlatforms().length === 0"
           (click)="enviarDatos()"
           >Guardar <a href="../buscar"></a

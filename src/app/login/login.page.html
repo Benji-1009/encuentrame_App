@@ -1,6 +1,10 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" style="text-align: center">
   <ion-toolbar>
-    <ion-title> Login </ion-title>
+    <ion-img
+      src="/assets/icon/Asset 6ldpi.png"
+      style="width: 30px; height: 30px; margin: auto"
+      (click)="logo()"
+    ></ion-img>
   </ion-toolbar>
 </ion-header>
 
@@ -52,7 +56,7 @@
         <ion-button
           expand="full"
           shape="round"
-          color="success"
+          color="primary"
           (click)="login()"
           >INICIAR SESIÓN</ion-button
         >

@@ -14,6 +14,7 @@ import {
   IonAvatar,
   IonButton,
   IonText,
+  IonImg,
 } from '@ionic/angular/standalone';
 import {
   triangle,
@@ -51,6 +52,7 @@ import { ServicioService } from '../servicio.service';
     FormsModule,
     IonText,
     NgIf,
+    IonImg,
   ],
 })
 export class BuscarPage {
@@ -108,5 +110,8 @@ export class BuscarPage {
         },
       });
     }
+  }
+  logo() {
+    this.router.navigate(['../tabs/login']);
   }
 }

@@ -11,6 +11,7 @@ import {
   IonItem,
   IonLabel,
   IonButton,
+  IonImg,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
 import { Router } from '@angular/router';
@@ -31,6 +32,7 @@ import { Router } from '@angular/router';
     IonLabel,
     IonButton,
     FormsModule,
+    IonImg,
   ],
 })
 export class LoginPage {
@@ -84,5 +86,9 @@ export class LoginPage {
         alert('Error al iniciar sesión');
       },
     });
+  }
+
+  logo() {
+    this.router.navigate(['../tabs/login']);
   }
 }

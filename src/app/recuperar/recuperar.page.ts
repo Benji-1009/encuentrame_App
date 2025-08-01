@@ -13,6 +13,7 @@ import {
   IonLabel,
   IonButton,
   IonText,
+  IonImg,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
 import { Router } from '@angular/router';
@@ -36,6 +37,7 @@ import { Router } from '@angular/router';
     IonText,
     FormsModule,
     NgIf,
+    IonImg,
   ],
 })
 export class RecuperarPage {
@@ -74,5 +76,8 @@ export class RecuperarPage {
     this.router.navigate(['../tabs/login']);
     this.email = '';
     this.password = '';
+  }
+  logo() {
+    this.router.navigate(['../tabs/login']);
   }
 }

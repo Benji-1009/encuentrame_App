@@ -17,6 +17,7 @@ import {
   IonText,
   IonList,
   IonCheckbox,
+  IonImg,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
 import { addIcons } from 'ionicons';
@@ -32,6 +33,7 @@ import {
   informationSharp,
   searchSharp,
   chevronBackOutline,
+  arrowUndoOutline,
 } from 'ionicons/icons';
 
 @Component({
@@ -57,6 +59,7 @@ import {
     NgFor,
     IonList,
     IonCheckbox,
+    IonImg,
   ],
 })
 export class Registro1Page {
@@ -72,6 +75,7 @@ export class Registro1Page {
 
   constructor(public servicioService: ServicioService, private router: Router) {
     addIcons({
+      arrowUndoOutline,
       triangle,
       ellipse,
       square,
@@ -177,5 +181,8 @@ export class Registro1Page {
     this.router.navigate(['../tabs/login']);
     this.email = '';
     this.password = '';
+  }
+  logo() {
+    this.router.navigate(['../tabs/login']);
   }
 }

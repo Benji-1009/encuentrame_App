@@ -37,15 +37,16 @@ export const routes: Routes = [
           import('../details/details.page').then((m) => m.DetailsPage),
       },
       {
+        path: 'recuperar',
+        loadComponent: () =>
+          import('../recuperar/recuperar.page').then((m) => m.RecuperarPage),
+      },
+      {
         path: '',
         redirectTo: '/tabs/login',
         pathMatch: 'full',
       },
     ],
   },
-  {
-    path: '',
-    redirectTo: '/tabs/login',
-    pathMatch: 'full',
-  },
+  { path: '', redirectTo: '/tabs/login', pathMatch: 'full' },
 ];

@@ -10,20 +10,36 @@
       <ion-title size="large">details</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-button fill="clear" (click)="goBack()">Regresar</ion-button>
+  <br />
+  <ion-icon
+    name="arrow-undo-outline"
+    style="color: red; font-size: 30px"
+    (click)="goBack()"
+  ></ion-icon>
 
   <ion-card>
     <ion-card-content style="text-align: center">
-      <ion-title>Detalle de tu paquete: </ion-title><br />
+      <ion-title>
+        <h1><strong>Detalle de tu paquete: </strong></h1></ion-title
+      ><br />
       <ion-item style="text-align: center">
         <ion-label>
-          <ion-title *ngIf="detalleSeleccionado" style="text-align: center">
+          <ion-title
+            *ngIf="detalleSeleccionado"
+            style="text-align: center; color: blue; font-size: 25px"
+          >
             {{ detalleSeleccionado.plataforma }} </ion-title
           ><br />
           <p></p>
-          <p *ngIf="details">{{ nombre }}</p>
-          <p>{{codigo}}</p>
-          <p>{{details}}</p>
+          <p *ngIf="details" style="font-weight: bold; font-size: 15px">
+            {{ nombre }}
+          </p>
+          <br />
+          <p style="color: red; font-size: 15px">{{codigo}}</p>
+          <br />
+          <p style="font-weight: bold; font-style: italic; font-size: 15px">
+            "{{details}}"
+          </p>
         </ion-label>
       </ion-item>
 

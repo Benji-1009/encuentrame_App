@@ -11,9 +11,12 @@ import {
   IonItem,
   IonLabel,
   IonButton,
+  IonIcon,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
 import { Router } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { arrowUndoOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-details',
@@ -32,6 +35,7 @@ import { Router } from '@angular/router';
     IonItem,
     IonLabel,
     IonButton,
+    IonIcon,
   ],
 })
 export class DetailsPage implements OnInit {
@@ -49,7 +53,11 @@ export class DetailsPage implements OnInit {
   constructor(
     private servicioService: ServicioService,
     private router: Router
-  ) {}
+  ) {
+    addIcons({
+      arrowUndoOutline,
+    });
+  }
 
   generarNumeroAzar() {
     this.numeroAzar = Math.floor(Math.random() * 11);

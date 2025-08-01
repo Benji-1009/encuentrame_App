@@ -14,11 +14,13 @@ import {
   IonList,
   IonCard,
   IonCardContent,
+  IonIcon,
 } from '@ionic/angular/standalone';
 import { ServicioService } from '../servicio.service';
 import { Router } from '@angular/router';
 
 import { addIcons } from 'ionicons';
+import { arrowUndoOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-results',
@@ -39,6 +41,7 @@ import { addIcons } from 'ionicons';
     NgFor,
     IonCard,
     IonCardContent,
+    IonIcon,
   ],
 })
 export class ResultsPage {
@@ -52,7 +55,11 @@ export class ResultsPage {
   constructor(
     private servicioService: ServicioService,
     private router: Router
-  ) {}
+  ) {
+    addIcons({
+      arrowUndoOutline,
+    });
+  }
 
   ngOnInit() {
     const plataformasStr = localStorage.getItem('platform') || '';
